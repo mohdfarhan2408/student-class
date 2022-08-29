@@ -1,23 +1,32 @@
 package com.example.studentclass.Modules;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
+@Table(name = "class")
 @Getter
 @Setter
-@AllArgsConstructor
+@ToString
 @NoArgsConstructor
-public class Class {
+@AllArgsConstructor
+@Builder
 
+public class Class {
     @Id
+    @GeneratedValue
     private Long id;
     private String name;
 
+    @OneToMany(mappedBy = "myclass")
+    @ToString.Exclude
+    private Set<Student> students;
+
+    @Enumerated(EnumType.STRING)
+    private Status status;
 
 }
+
+

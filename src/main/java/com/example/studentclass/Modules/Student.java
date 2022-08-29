@@ -5,12 +5,14 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "STUDENTS")
+@Table(name = "student")
 @Getter
 @Setter
 @ToString
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
+
 public class Student {
 
     @Id
@@ -19,8 +21,16 @@ public class Student {
     private String name;
     private Integer age;
     private String address;
-    private Long classId;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "class_id", nullable = false)
+    @ToString.Exclude
+    private Class myclass;
 
     @Enumerated(EnumType.STRING)
     private Status status;
+
+
+
+
 }

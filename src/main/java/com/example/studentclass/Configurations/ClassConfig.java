@@ -16,14 +16,23 @@ public class ClassConfig {
     @Bean
     CommandLineRunner commandLineRunner(ClassRepo repo){
         return args -> {
+//
+//            var myclass = Class.builder()
+//                    .name("Bestari")
+//                    .status(Status.ACTIVE)
+//                    .build();
+//
+//            repo.save(myclass);
 
-            var myclass = Class.builder()
-                    .name("Bestari")
-                    .status(Status.ACTIVE)
-                    .build();
+            Class class1 = new Class(
+                    "Bestari",
+                    Status.ACTIVE
+            );
 
-            repo.save(myclass);
+            repo.save(class1);
 
         };
+
+
     }
 }

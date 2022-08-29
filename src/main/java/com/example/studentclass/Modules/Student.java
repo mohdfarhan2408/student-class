@@ -19,10 +19,9 @@ public class Student {
     private String name;
     private Integer age;
     private String address;
+    private Long classId;
 
     @Enumerated(EnumType.STRING)
     private Status status;
-
-
 
 }

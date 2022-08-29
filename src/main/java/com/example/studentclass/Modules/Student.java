@@ -20,7 +20,7 @@ public class Student {
     private Integer age;
     private String address;
 
-    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
     private Status status;
 
 

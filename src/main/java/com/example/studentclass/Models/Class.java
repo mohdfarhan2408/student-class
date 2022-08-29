@@ -1,36 +1,35 @@
-package com.example.studentclass.Modules;
+package com.example.studentclass.Models;
 
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
-@Table(name = "student")
+@Table(name = "class")
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 
-public class Student {
-
+public class Class {
     @Id
     @GeneratedValue
     private Long id;
     private String name;
-    private Integer age;
-    private String address;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "class_id", nullable = false)
+    @OneToMany(mappedBy = "myclass")
     @ToString.Exclude
-    private Class myclass;
+    private Set<Student> students;
 
     @Enumerated(EnumType.STRING)
     private Status status;
 
-
-
-
+    public Class(String name, Status status) {
+        this.name = name;
+        this.status = status;
+    }
 }
+
+

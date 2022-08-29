@@ -1,4 +1,4 @@
-package com.example.studentclass.Modules;
+package com.example.studentclass.Models;
 
 
 public enum Status {

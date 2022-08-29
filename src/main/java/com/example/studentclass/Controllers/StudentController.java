@@ -32,7 +32,7 @@ public class StudentController {
         return new ResponseEntity<>(this.studentService.getAllActiveStudents(status), HttpStatus.OK );
     }
 
-    
+
     //POST Student
     @PostMapping
     public ResponseEntity<Student> createStudent(@RequestBody Student newStudent){

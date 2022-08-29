@@ -1,6 +1,8 @@
 package com.example.studentclass.Services;
 
 import com.example.studentclass.Models.Class;
+import com.example.studentclass.Models.Status;
+import com.example.studentclass.Models.Student;
 import com.example.studentclass.Repositories.ClassRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,13 +17,23 @@ public class ClassService {
         this.classRepo = classRepo;
     }
 
-    //Get a class based on Id;
+
     public Class getClassById(Long id) {
         return classRepo.findById(id)
                 .orElseThrow(() -> new IllegalStateException("Class with id" + id + "doesnt exist"));
     }
 
-    //Get a list of all active classes;
 
-    //Create a class;
+    public Student getAllActiveClasses(Status status) {
+        return null;
+
+        /*
+         * Check the table where class_status = Active.
+         *
+         *  */
+    }
+
+    public Class createNewClass(Class newClass) {
+        return classRepo.save(newClass);
+    }
 }

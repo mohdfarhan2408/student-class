@@ -27,6 +27,10 @@ public class Class {
     @Enumerated(EnumType.STRING)
     private Status status;
 
+    public Class(String name, Status status) {
+        this.name = name;
+        this.status = status;
+    }
 }
 
 

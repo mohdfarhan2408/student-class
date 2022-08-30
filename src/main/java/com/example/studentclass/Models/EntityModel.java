@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 
 @MappedSuperclass
 @Getter
-public class EntityModel {
+public abstract class EntityModel {
 
     protected LocalDateTime createdAt;
     protected LocalDateTime updatedAt;

@@ -16,7 +16,16 @@ import java.util.Set;
 public class Class {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @SequenceGenerator(
+            name = "class_sequence",
+            sequenceName = "class_sequence",
+            allocationSize = 1
+    )
+
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "class_sequence"
+    )
     private Long id;
     private String name;
 

@@ -15,7 +15,7 @@ import javax.persistence.*;
 public class Student {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
     private String name;
     private Integer age;

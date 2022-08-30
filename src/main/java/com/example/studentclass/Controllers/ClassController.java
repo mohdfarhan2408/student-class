@@ -29,22 +29,23 @@ public class ClassController {
         return new ResponseEntity<>(this.classService.getClassById(id), HttpStatus.OK);
     }
 
-//    @GetMapping()
+//    @GetMapping(path = "test")
 //    public String getClassById(){
 //        return "test";
 //
 //    }
 
     //Get all active classes;
-    @GetMapping
+    @GetMapping(path = "active")
     public ResponseEntity<Class> getAllActiveClasses(@RequestParam(name = "status", required = false) Status status) {
 //        return null new ResponseEntity<>(this.classService.getAllActiveClasses(status), HttpStatus.OK );
         return null;
     }
 
     //POST a class;
-    @PostMapping
+    @PostMapping(path = "post")
     public ResponseEntity<Class> createStudent(@RequestBody Class newClass){
         return new ResponseEntity<>(this.classService.createNewClass(newClass), HttpStatus.CREATED );
     }
+
 }

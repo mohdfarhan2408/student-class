@@ -16,7 +16,7 @@ import java.util.Set;
 public class Class {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
     private String name;
 

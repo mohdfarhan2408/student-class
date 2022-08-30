@@ -7,30 +7,30 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-//@Configuration
-//public class ClassConfig {
+@Configuration
+public class ClassConfig {
+
+
+    @Bean
+    CommandLineRunner commandLineRunner(ClassRepo repo){
+        return args -> {
 //
-//
-//    @Bean
-//    CommandLineRunner commandLineRunner(ClassRepo repo){
-//        return args -> {
-////
-////            var myclass = Class.builder()
-////                    .name("Bestari")
-////                    .status(Status.ACTIVE)
-////                    .build();
-////
-////            repo.save(myclass);
-//
-////            Class class1 = new Class(
-////                    "Bestari",
-////                    Status.ACTIVE
-////            );
-////
-////            repo.save(class1);
-////
-////        };
-//
-//
-//    }
-//}
+//            var myclass = Class.builder()
+//                    .name("Bestari")
+//                    .status(Status.ACTIVE)
+//                    .build();
+
+//            repo.save(myclass);
+
+            Class class1 = new Class(
+                    "Bestari",
+                    Status.ACTIVE
+            );
+
+            repo.save(class1);
+
+        };
+
+
+    }
+}

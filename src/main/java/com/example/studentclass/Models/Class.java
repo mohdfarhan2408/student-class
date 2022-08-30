@@ -13,7 +13,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Class {
+public class Class extends EntityModel {
 
     @Id
     @SequenceGenerator(

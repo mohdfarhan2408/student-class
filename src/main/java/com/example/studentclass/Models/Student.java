@@ -12,7 +12,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Student {
+public class Student extends EntityModel{
 
     @Id
     @SequenceGenerator(

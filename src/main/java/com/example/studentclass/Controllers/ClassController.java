@@ -29,12 +29,6 @@ public class ClassController {
         return new ResponseEntity<>(this.classService.getClassById(id), HttpStatus.OK);
     }
 
-//    @GetMapping(path = "test")
-//    public String getClassById(){
-//        return "test";
-//
-//    }
-
     //Get all active classes;
     @GetMapping(path = "/active")
     public ResponseEntity<Class> getAllActiveClasses(@RequestParam(name = "status", required = false) Status status) {

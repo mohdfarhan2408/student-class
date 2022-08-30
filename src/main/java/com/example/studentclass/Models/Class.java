@@ -14,7 +14,7 @@ import java.util.Set;
 @AllArgsConstructor
 
 public class Class {
-    
+
     @Id
     @GeneratedValue
     private Long id;

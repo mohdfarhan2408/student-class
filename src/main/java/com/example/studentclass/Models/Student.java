@@ -39,6 +39,12 @@ public class Student {
     private Status status;
 
 
-
+    public Student(String name, Integer age, String address, Class myclass, Status status) {
+        this.name = name;
+        this.age = age;
+        this.address = address;
+        this.myclass = myclass;
+        this.status = status;
+    }
 
 }

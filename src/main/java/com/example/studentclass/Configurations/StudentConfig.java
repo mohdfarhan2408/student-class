@@ -1,12 +1,9 @@
 //package com.example.studentclass.Configurations;
 //
 //
-//import com.example.studentclass.Modules.Class;
-//import com.example.studentclass.Modules.Status;
-//import com.example.studentclass.Modules.Student;
-//import com.example.studentclass.Repositories.ClassRepo;
+//import com.example.studentclass.Models.Status;
+//import com.example.studentclass.Models.Student;
 //import com.example.studentclass.Repositories.StudentRepo;
-//import lombok.var;
 //import org.springframework.boot.CommandLineRunner;
 //import org.springframework.context.annotation.Bean;
 //import org.springframework.context.annotation.Configuration;
@@ -15,18 +12,18 @@
 //public class StudentConfig {
 //
 //    @Bean
-//    CommandLineRunner commandLineRunner(StudentRepo repo){
+//    CommandLineRunner commandLineRunner2(StudentRepo repo){
 //    return args -> {
 //
-//        var myStudent = Student.builder()
-//                .name("Farhan")
-//                .age(24)
-//                .address("Cheras")
-//                .myclass()
-//                .status(Status.ACTIVE)
-//                .build();
+//        Student student1 = new Student(
+//                "Afiq",
+//                17,
+//                "Melaka",
+//                1L,
+//                Status.ACTIVE
+//        );
 //
-//        repo.save(myStudent);
+//        repo.save(student1);
 //
 //    };
 //

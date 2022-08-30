@@ -3,6 +3,7 @@ package com.example.studentclass.Models;
 import lombok.Getter;
 
 import javax.persistence.MappedSuperclass;
+import javax.persistence.PostUpdate;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import java.time.LocalDateTime;
@@ -19,7 +20,7 @@ public abstract class EntityModel {
         this.createdAt = LocalDateTime.now();
     }
 
-    @PreUpdate
+    @PostUpdate
     public void generateUpdateAt() {
         this.updatedAt = LocalDateTime.now();
     }

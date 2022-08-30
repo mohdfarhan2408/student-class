@@ -31,9 +31,8 @@ public class ClassController {
 
     //Get all active classes;
     @GetMapping(path = "/active")
-    public ResponseEntity<Class> getAllActiveClasses(@RequestParam(name = "status", required = false) Status status) {
-//        return null new ResponseEntity<>(this.classService.getAllActiveClasses(status), HttpStatus.OK );
-        return null;
+    public ResponseEntity<Class> getAllActiveClasses(Class activeClass) {
+        return new ResponseEntity<>(this.classService.getAllActiveClasses(activeClass), HttpStatus.OK );
     }
 
     //POST a class;

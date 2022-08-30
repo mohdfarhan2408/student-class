@@ -24,8 +24,8 @@ public class ClassService {
     }
 
 
-    public Student getAllActiveClasses(Status status) {
-        return null;
+    public Class getAllActiveClasses(Class activeClass) {
+        return (Class) classRepo.findAllActiveClasses(activeClass);
 
         /*
          * Check the table where class_status = Active.

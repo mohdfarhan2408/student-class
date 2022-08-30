@@ -24,7 +24,7 @@ public class ClassController {
     }
 
     //Get by Id;
-    @GetMapping(path = "{id}")
+    @GetMapping(path = "/{id}")
     public ResponseEntity<Class> getById(@PathVariable("id") Long id){
         return new ResponseEntity<>(this.classService.getClassById(id), HttpStatus.OK);
     }
@@ -36,14 +36,14 @@ public class ClassController {
 //    }
 
     //Get all active classes;
-    @GetMapping(path = "active")
+    @GetMapping(path = "/active")
     public ResponseEntity<Class> getAllActiveClasses(@RequestParam(name = "status", required = false) Status status) {
 //        return null new ResponseEntity<>(this.classService.getAllActiveClasses(status), HttpStatus.OK );
         return null;
     }
 
     //POST a class;
-    @PostMapping(path = "post")
+    @PostMapping(path = "/post")
     public ResponseEntity<Class> createStudent(@RequestBody Class newClass){
         return new ResponseEntity<>(this.classService.createNewClass(newClass), HttpStatus.CREATED );
     }

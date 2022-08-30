@@ -27,7 +27,13 @@ public class ClassConfig {
                     Status.ACTIVE
             );
 
+            Class class2 = new Class (
+                    "Gemilang",
+                    Status.INACTIVE
+            );
+
             repo.save(class1);
+            repo.save(class2);
 
         };
 

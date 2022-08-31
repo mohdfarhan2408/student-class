@@ -29,9 +29,9 @@ public class Class extends EntityModel {
     private Long id;
     private String name;
 
-    @OneToMany(mappedBy = "myclass")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "myclass")
     @ToString.Exclude
-    private Set<Student> students;
+    private Set<Student> student;
 
     @Enumerated(EnumType.STRING)
     private Status status;

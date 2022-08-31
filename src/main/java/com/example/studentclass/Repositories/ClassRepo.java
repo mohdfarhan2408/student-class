@@ -2,7 +2,6 @@ package com.example.studentclass.Repositories;
 
 
 import com.example.studentclass.Models.Class;
-import com.example.studentclass.Models.Status;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

@@ -1,9 +1,6 @@
 package com.example.studentclass.Controllers;
 
 import com.example.studentclass.Models.Class;
-import com.example.studentclass.Models.Status;
-import com.example.studentclass.Models.Student;
-import com.example.studentclass.Repositories.ClassRepo;
 import com.example.studentclass.Services.ClassService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

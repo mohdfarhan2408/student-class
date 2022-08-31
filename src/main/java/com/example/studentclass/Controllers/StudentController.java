@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(path = "/students")
 public class StudentController {
@@ -27,11 +29,10 @@ public class StudentController {
 
 
     //Get list of all active students
-    @GetMapping
-    public ResponseEntity<Student> getAllActiveStudents(@RequestParam(name = "status", required = false)Status status) {
-        return new ResponseEntity<>(this.studentService.getAllActiveStudents(status), HttpStatus.OK );
+    @GetMapping(path = "/active")
+    public ResponseEntity<List<Student>> getAllActiveStudents() {
+        return new ResponseEntity<>(this.studentService.getActiveStudents(), HttpStatus.OK );
     }
-
 
     //POST Student
     @PostMapping

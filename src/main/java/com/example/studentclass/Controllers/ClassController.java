@@ -10,17 +10,17 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(path = "/classes")
 public class ClassController {
 
     private final ClassService classService;
-    private final ClassRepo classRepo;
 
     @Autowired
-    public ClassController(ClassService classService, ClassRepo classRepo) {
+    public ClassController(ClassService classService) {
         this.classService = classService;
-        this.classRepo = classRepo;
     }
 
     //Get by Id;
@@ -31,8 +31,8 @@ public class ClassController {
 
     //Get all active classes;
     @GetMapping(path = "/active")
-    public ResponseEntity<Class> getAllActiveClasses(Class activeClass) {
-        return new ResponseEntity<>(this.classService.getAllActiveClasses(activeClass), HttpStatus.OK );
+    public ResponseEntity<List<Class>> getActiveClasses() {
+        return new ResponseEntity<>(this.classService.getAllActiveClasses(), HttpStatus.OK );
     }
 
     //POST a class;

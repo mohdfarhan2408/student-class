@@ -7,6 +7,8 @@ import com.example.studentclass.Repositories.ClassRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ClassService {
 
@@ -20,17 +22,12 @@ public class ClassService {
 
     public Class getClassById(Long id) {
         return classRepo.findById(id)
-                .orElseThrow(() -> new IllegalStateException("Class with id" + id + "doesnt exist"));
+                .orElseThrow(() -> new IllegalStateException("Class with id " +  id + " doesnt exist"));
     }
 
 
-    public Class getAllActiveClasses(Class activeClass) {
-        return (Class) classRepo.findAllActiveClasses(activeClass);
-
-        /*
-         * Check the table where class_status = Active.
-         *
-         *  */
+    public List<Class> getAllActiveClasses() {
+        return classRepo.findAllActiveClasses();
     }
 
     public Class createNewClass(Class newClass) {

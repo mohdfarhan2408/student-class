@@ -1,11 +1,11 @@
 package com.example.studentclass.Services;
 
-import com.example.studentclass.Models.Status;
 import com.example.studentclass.Models.Student;
 import com.example.studentclass.Repositories.StudentRepo;
-import org.hibernate.type.descriptor.sql.JdbcTypeFamilyInformation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class StudentService {
@@ -24,13 +24,8 @@ public class StudentService {
     }
 
 
-    public Student getAllActiveStudents(Status status) {
-        return null;
-
-        /*
-        * Check the table where student_status = Active.
-        *
-        *  */
+    public List<Student> getActiveStudents() {
+        return studentRepo.findAllActiveStudents();
     }
 
     public Student createNewStudent(Student newStudent) {

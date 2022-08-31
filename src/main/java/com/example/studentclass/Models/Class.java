@@ -13,7 +13,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Class {
+public class Class extends EntityModel {
 
     @Id
     @SequenceGenerator(
@@ -29,9 +29,9 @@ public class Class {
     private Long id;
     private String name;
 
-    @OneToMany(mappedBy = "myclass")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "myclass")
     @ToString.Exclude
-    private Set<Student> students;
+    private Set<Student> student;
 
     @Enumerated(EnumType.STRING)
     private Status status;

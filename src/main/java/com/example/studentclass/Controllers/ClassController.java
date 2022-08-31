@@ -23,7 +23,7 @@ public class ClassController {
         this.classService = classService;
     }
 
-    //Get by Id;
+    //Get class by Id;
     @GetMapping(path = "/{id}")
     public ResponseEntity<Class> getById(@PathVariable("id") Long id){
         return new ResponseEntity<>(this.classService.getClassById(id), HttpStatus.OK);
@@ -37,7 +37,7 @@ public class ClassController {
 
     //POST a class;
     @PostMapping(path = "/post")
-    public ResponseEntity<Class> createStudent(@RequestBody Class newClass){
+    public ResponseEntity<Class> createClass(@RequestBody Class newClass){
         return new ResponseEntity<>(this.classService.createNewClass(newClass), HttpStatus.CREATED );
     }
 

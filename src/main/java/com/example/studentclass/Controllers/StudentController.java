@@ -35,7 +35,7 @@ public class StudentController {
     }
 
     //POST Student
-    @PostMapping
+    @PostMapping(path = "/post")
     public ResponseEntity<Student> createStudent(@RequestBody Student newStudent){
         return new ResponseEntity<>(this.studentService.createNewStudent(newStudent), HttpStatus.CREATED );
     }

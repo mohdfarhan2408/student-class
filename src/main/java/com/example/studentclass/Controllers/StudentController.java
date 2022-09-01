@@ -43,15 +43,18 @@ public class StudentController {
 
     //POST Student
     @PostMapping(path = "/create/{classId}")
-    public Student createStudent(@RequestBody Student newStudent, @PathVariable("classId") Long id){
+    public void createStudent(@RequestBody Student newStudent, @PathVariable("classId") Long id){
         Optional<Class> className = classRepo.findById(id);
-        Student student = studentRepo.save(newStudent);
-        student.setMyclass(className.get());
-        studentRepo.save(student);
-         return student;
+        if (!className.isPresent()){
+            throw new RuntimeException("Class not found");
+        }
+
+        Student std = studentRepo.save(newStudent);
+        std.setMyclass(className.get());
+        System.out.println(std.toString());
+        studentRepo.saveAndFlush(std);
     }
 
-    return new ResponseEntity<>(HttpStatus.CREATED);
 
 
 }

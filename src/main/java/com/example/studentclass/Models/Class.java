@@ -15,6 +15,7 @@ import java.util.Set;
 
 public class Class extends EntityModel {
 
+
     @Id
     @SequenceGenerator(
             name = "class_sequence",

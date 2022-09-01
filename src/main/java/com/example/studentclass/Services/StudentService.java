@@ -20,7 +20,7 @@ public class StudentService {
 
     public Student getStudentById(Long id) {
         return studentRepo.findById(id)
-                .orElseThrow(() -> new IllegalStateException("Student wit id:" + id + "doesn't exist"));
+                .orElseThrow(() -> new IllegalStateException("Student wit id: " + id + " doesn't exist"));
     }
 
 

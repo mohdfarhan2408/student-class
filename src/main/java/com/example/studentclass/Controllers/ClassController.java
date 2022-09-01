@@ -33,7 +33,7 @@ public class ClassController {
     }
 
     //POST a class;
-    @PostMapping(path = "/post")
+    @PostMapping(path = "/create")
     public ResponseEntity<Class> createClass(@RequestBody Class newClass){
         return new ResponseEntity<>(this.classService.createNewClass(newClass), HttpStatus.CREATED );
     }

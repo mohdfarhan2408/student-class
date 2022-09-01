@@ -52,11 +52,5 @@ public class StudentService {
         studentRepo.save(std);
         return std;
     }
-//        Student aStudent = classRepo.findById(id).map(aClass -> {
-//            newStudent.setMyclass(aClass);
-//            return studentRepo.save(newStudent);
-//        }).orElseThrow(() -> new IllegalStateException("Class not found"));
-//
-//        return aStudent;
-//    }
+
 }

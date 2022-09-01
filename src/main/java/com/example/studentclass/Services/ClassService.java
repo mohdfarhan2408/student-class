@@ -31,4 +31,16 @@ public class ClassService {
     public Class createNewClass(Class newClass) {
         return classRepo.save(newClass);
     }
+
+    public Class updateClassDetails(Class classDetails, Long id) {
+
+        Class updatedClass = classRepo.findById(id).orElseThrow(
+                () -> new IllegalStateException("Class with id " + id + " doesn't exist"));
+
+            updatedClass.setName(classDetails.getName());
+            updatedClass.setStatus(classDetails.getStatus());
+
+            classRepo.save((updatedClass));
+            return updatedClass;
+    }
 }

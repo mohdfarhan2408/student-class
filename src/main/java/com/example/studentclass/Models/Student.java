@@ -12,7 +12,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Student extends EntityModel{
+public class Student extends EntityModel{ //comments
 
     @Id
     @SequenceGenerator(
@@ -33,7 +33,7 @@ public class Student extends EntityModel{
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "class_id")
     @ToString.Exclude
-    private Class myclass;
+    private Class myclass; //tutorial
 
     @Enumerated(EnumType.STRING)
     private Status status;

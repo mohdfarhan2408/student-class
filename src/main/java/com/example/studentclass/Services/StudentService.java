@@ -1,6 +1,7 @@
 package com.example.studentclass.Services;
 
 import com.example.studentclass.Models.Student;
+import com.example.studentclass.Repositories.ClassRepo;
 import com.example.studentclass.Repositories.StudentRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,10 +12,12 @@ import java.util.List;
 public class StudentService {
 
     private final StudentRepo studentRepo;
+    private final ClassRepo classRepo;
 
     @Autowired
-    public StudentService(StudentRepo studentRepo) {
+    public StudentService(StudentRepo studentRepo, ClassRepo classRepo) {
         this.studentRepo = studentRepo;
+        this.classRepo = classRepo;
     }
 
 
@@ -28,7 +31,12 @@ public class StudentService {
         return studentRepo.findAllActiveStudents();
     }
 
-    public Student createNewStudent(Student newStudent) {
-        return studentRepo.save(newStudent);
-    }
+//    public Student createNewStudent(Student newStudent, Long id) {
+//        Student student = classRepo.findById(id).map(aClass -> {
+//            newStudent.setMyclass(aClass);
+//        }
+//        );
+//
+//        return studentRepo.save(newStudent);
+//    }
 }

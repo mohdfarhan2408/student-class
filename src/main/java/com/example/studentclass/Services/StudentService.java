@@ -41,7 +41,8 @@ public class StudentService {
 
         Student std = studentRepo.save(newStudent);
         std.setMyClass(classId.get());
-        return studentRepo.save(std);
+        studentRepo.save(std);
+        return std;
 //        return "Student Added";
     }
 //        Student aStudent = classRepo.findById(id).map(aClass -> {

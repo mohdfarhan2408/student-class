@@ -30,9 +30,8 @@ public class Student extends EntityModel{
     private Integer age;
     private String address;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "class_id")
-    @ToString.Exclude
     private Class myClass;
 
     @Enumerated(EnumType.STRING)

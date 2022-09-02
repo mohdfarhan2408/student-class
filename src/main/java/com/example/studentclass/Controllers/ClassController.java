@@ -38,9 +38,4 @@ public class ClassController {
         return new ResponseEntity<>(this.classService.createNewClass(newClass), HttpStatus.CREATED );
     }
 
-//    @PutMapping(path = "/{id}")
-//    public ResponseEntity<Class> updateClass(@RequestBody Class newClass, @PathVariable("id") Long id) {
-//        return new ResponseEntity<>(this.classService.updateClassDetails(newClass, id), HttpStatus.ACCEPTED);
-//    }
-
 }

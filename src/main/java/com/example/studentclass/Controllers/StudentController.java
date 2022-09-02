@@ -1,6 +1,9 @@
 package com.example.studentclass.Controllers;
 
+import com.example.studentclass.Models.Class;
 import com.example.studentclass.Models.Student;
+import com.example.studentclass.Repositories.ClassRepo;
+import com.example.studentclass.Repositories.StudentRepo;
 import com.example.studentclass.Services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -8,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/students")
@@ -15,9 +19,11 @@ public class StudentController {
 
     private final StudentService studentService;
 
+
     @Autowired
     public StudentController(StudentService studentService) {
         this.studentService = studentService;
+
     }
 
     //GET student By Id
@@ -34,10 +40,10 @@ public class StudentController {
     }
 
     //POST Student
-    @PostMapping(path = "/create")
-    public ResponseEntity<Student> createStudent(@RequestBody Student newStudent){
-        return new ResponseEntity<>(this.studentService.createNewStudent(newStudent), HttpStatus.CREATED );
+    @PostMapping(path = "/create/{classId}")
+    public ResponseEntity<Student> createStudent(@RequestBody Student newStudent, @PathVariable("classId") Long id){
+        return new ResponseEntity<>(this.studentService.createNewStudent(newStudent,id), HttpStatus.CREATED);
     }
-
+    
 
 }

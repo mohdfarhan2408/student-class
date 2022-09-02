@@ -21,10 +21,10 @@ public class CreateStudentDto {
     @NotNull
     @JsonProperty("address")
     private String address;
-
-    @NotNull
-    @JsonProperty("myClass")
-    private Class myClass;
+//
+//    @NotNull
+//    @JsonProperty("myClass")
+//    private Class myClass;
 
     @NotNull
     @JsonProperty("status")

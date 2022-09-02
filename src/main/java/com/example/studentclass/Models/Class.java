@@ -1,8 +1,10 @@
 package com.example.studentclass.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -31,9 +33,10 @@ public class Class extends EntityModel {
     private Long id;
     private String name;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "myClass")
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "myClass")
     @ToString.Exclude
-    private Set<Student> student;
+    private List<Student> student;
 
     @Enumerated(EnumType.STRING)
     private Status status;

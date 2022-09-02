@@ -52,13 +52,13 @@ public class StudentService {
                 .name(dto.getName())
                 .age(dto.getAge())
                 .address(dto.getAddress())
-                .myClass(dto.getMyClass())
                 .status(dto.getStatus())
                 .build()
                 ;
 
         Student newStudent = studentRepo.save(student);
         newStudent.setMyClass(classId.get());
+        studentRepo.save(newStudent);
         return newStudent;
     }
 }

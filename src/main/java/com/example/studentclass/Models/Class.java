@@ -32,7 +32,7 @@ public class Class extends EntityModel {
     private Long id;
     private String name;
 
-
+    @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "myClass")
     @ToString.Exclude
     private Set<Student> student;

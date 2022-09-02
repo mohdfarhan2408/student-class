@@ -44,7 +44,7 @@ public class StudentService {
         LOG.debug("Get the Student");
         Optional<Class> classId = classRepo.findById(id);
         if (!classId.isPresent()){
-            throw new RuntimeException("Student with id " + classId + " couldn't be found");
+            throw new RuntimeException("Student with id " + classId + " doesn't exist");
         }
 
         Student newStudent = studentRepo.save(student);

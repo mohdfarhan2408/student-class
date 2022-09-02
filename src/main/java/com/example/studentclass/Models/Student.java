@@ -31,7 +31,7 @@ public class Student extends EntityModel{
     private Integer age;
     private String address;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "class_id")
     private Class myClass;
 

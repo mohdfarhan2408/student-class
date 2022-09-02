@@ -1,5 +1,6 @@
 package com.example.studentclass.dto;
 
+import com.example.studentclass.Models.Class;
 import com.example.studentclass.Models.Status;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sun.istack.NotNull;
@@ -7,7 +8,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter
-@Setter
 public class CreateStudentDto {
 
     @NotNull
@@ -22,7 +22,9 @@ public class CreateStudentDto {
     @JsonProperty("address")
     private String address;
 
-//    private CLass myClass;
+    @NotNull
+    @JsonProperty("myClass")
+    private Class myClass;
 
     @NotNull
     @JsonProperty("status")

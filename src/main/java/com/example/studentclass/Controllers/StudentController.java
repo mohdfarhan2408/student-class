@@ -2,6 +2,7 @@ package com.example.studentclass.Controllers;
 
 import com.example.studentclass.Models.Student;
 import com.example.studentclass.Services.StudentService;
+import com.example.studentclass.dto.CreateStudentDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,7 +36,7 @@ public class StudentController {
 
     //POST Student
     @PostMapping(path = "/create/{classId}")
-    public ResponseEntity<Student> createStudent(@RequestBody Student newStudent, @PathVariable("classId") Long id){
+    public ResponseEntity<Student> createStudent(@RequestBody CreateStudentDto newStudent, @PathVariable("classId") Long id){
         return new ResponseEntity<>(this.studentService.createNewStudent(newStudent, id), HttpStatus.CREATED );
     }
 

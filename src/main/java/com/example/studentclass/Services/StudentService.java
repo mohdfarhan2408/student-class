@@ -40,7 +40,7 @@ public class StudentService {
 
         Optional<Class> classId = classRepo.findById(id);
         if (!classId.isPresent()) {
-            throw new RuntimeException("Class with id " + classId + " couldn't be found");
+            throw new RuntimeException("Class with id " + id + " couldn't be found");
         }
 
 //        Student newStudent = studentRepo.save(student);
@@ -52,10 +52,13 @@ public class StudentService {
                 .name(dto.getName())
                 .age(dto.getAge())
                 .address(dto.getAddress())
+                .myClass(dto.getMyClass())
                 .status(dto.getStatus())
+                .build()
                 ;
 
         Student newStudent = studentRepo.save(student);
+        newStudent.setMyClass(classId.get());
         return newStudent;
     }
 }

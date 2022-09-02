@@ -12,6 +12,7 @@ import java.util.Set;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 
 public class Class extends EntityModel {
 
@@ -30,7 +31,7 @@ public class Class extends EntityModel {
     private Long id;
     private String name;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "myclass")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "myClass")
     @ToString.Exclude
     private Set<Student> student;
 

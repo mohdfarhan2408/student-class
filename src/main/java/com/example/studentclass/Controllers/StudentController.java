@@ -34,9 +34,9 @@ public class StudentController {
     }
 
     //POST Student
-    @PostMapping(path = "/create")
-    public ResponseEntity<Student> createStudent(@RequestBody Student newStudent){
-        return new ResponseEntity<>(this.studentService.createNewStudent(newStudent), HttpStatus.CREATED );
+    @PostMapping(path = "/create/{classId}")
+    public ResponseEntity<Student> createStudent(@RequestBody Student newStudent, @PathVariable("classId") Long id){
+        return new ResponseEntity<>(this.studentService.createNewStudent(newStudent, id), HttpStatus.CREATED );
     }
 
 

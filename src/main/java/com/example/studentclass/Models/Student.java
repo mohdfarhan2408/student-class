@@ -11,6 +11,7 @@ import javax.persistence.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 
 public class Student extends EntityModel{
 
@@ -33,7 +34,7 @@ public class Student extends EntityModel{
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "class_id")
     @ToString.Exclude
-    private Class myclass;
+    private Class myClass;
 
     @Enumerated(EnumType.STRING)
     private Status status;

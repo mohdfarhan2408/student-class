@@ -2,6 +2,8 @@ package com.example.studentclass.Services;
 
 import com.example.studentclass.Models.Class;
 import com.example.studentclass.Repositories.ClassRepo;
+import com.example.studentclass.dto.CreateClassDto;
+import lombok.var;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +30,12 @@ public class ClassService {
         return classRepo.findAllActiveClasses();
     }
 
-    public Class createNewClass(Class newClass) {
+    public Class createNewClass(CreateClassDto dto) {
+
+        var newClass = Class.builder()
+                .name(dto.getName())
+                .status(dto.getStatus())
+                .build();
         return classRepo.save(newClass);
     }
 }

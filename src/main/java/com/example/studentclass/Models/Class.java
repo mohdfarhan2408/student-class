@@ -34,7 +34,7 @@ public class Class extends EntityModel {
     private String name;
 
     @JsonIgnore
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "myClass")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "myClass")
     @ToString.Exclude
     private List<Student> student;
 

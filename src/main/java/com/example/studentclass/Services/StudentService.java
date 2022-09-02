@@ -28,7 +28,7 @@ public class StudentService {
 
     public Student getStudentById(Long id) {
         return studentRepo.findById(id)
-                .orElseThrow(() -> new IllegalStateException("Student wit id: " + id + " doesn't exist"));
+                .orElseThrow(() -> new RuntimeException("Student wit id: " + id + " doesn't exist"));
     }
 
 
@@ -43,18 +43,13 @@ public class StudentService {
             throw new RuntimeException("Class with id " + id + " couldn't be found");
         }
 
-//        Student newStudent = studentRepo.save(student);
-//        newStudent.setMyClass(classId.get());
-//        studentRepo.save(newStudent);
-//        return newStudent;
 
         var student = Student.builder()
                 .name(dto.getName())
                 .age(dto.getAge())
                 .address(dto.getAddress())
                 .status(dto.getStatus())
-                .build()
-                ;
+                .build();
 
         Student newStudent = studentRepo.save(student);
         newStudent.setMyClass(classId.get());

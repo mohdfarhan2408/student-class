@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/students")
+@RequestMapping(path = "/student")
 public class StudentController {
 
     private final StudentService studentService;
@@ -31,13 +31,13 @@ public class StudentController {
     //Get list of all active students
     @GetMapping(path = "/active")
     public ResponseEntity<List<Student>> getAllActiveStudents() {
-        return new ResponseEntity<>(this.studentService.getActiveStudents(), HttpStatus.OK );
+        return new ResponseEntity<>(this.studentService.getActiveStudents(), HttpStatus.OK);
     }
 
     //POST Student
     @PostMapping(path = "/create/{classId}")
     public ResponseEntity<Student> createStudent(@RequestBody CreateStudentDto newStudent, @PathVariable("classId") Long id){
-        return new ResponseEntity<>(this.studentService.createNewStudent(newStudent, id), HttpStatus.CREATED );
+        return new ResponseEntity<>(this.studentService.createNewStudent(newStudent, id), HttpStatus.CREATED);
     }
 
 

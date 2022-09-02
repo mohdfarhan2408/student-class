@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/classes")
+@RequestMapping(path = "/class")
 public class ClassController {
 
     private final ClassService classService;

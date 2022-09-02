@@ -1,5 +1,6 @@
 package com.example.studentclass.Models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 
 import javax.persistence.*;

@@ -39,7 +39,7 @@ public class StudentService {
         return studentRepo.findAllActiveStudents();
     }
 
-    public Student createNewStudent(Student newStudent, Long id) {
+    public Student createNewStudent(Student student, Long id) {
 
         LOG.debug("Get the Student");
         Optional<Class> classId = classRepo.findById(id);
@@ -47,10 +47,10 @@ public class StudentService {
             throw new RuntimeException("Class not found");
         }
 
-        Student std = studentRepo.save(newStudent);
-        std.setMyClass(classId.get());
-        studentRepo.save(std);
-        return std;
+        Student newStudent = studentRepo.save(student);
+        newStudent.setMyClass(classId.get());
+        studentRepo.save(newStudent);
+        return newStudent;
     }
 
 }

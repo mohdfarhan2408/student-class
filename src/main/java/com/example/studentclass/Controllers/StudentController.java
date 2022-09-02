@@ -18,14 +18,12 @@ import java.util.Optional;
 public class StudentController {
 
     private final StudentService studentService;
-    private final ClassRepo classRepo;
-    private final StudentRepo studentRepo;
+
 
     @Autowired
-    public StudentController(StudentService studentService, ClassRepo classRepo, StudentRepo studentRepo) {
+    public StudentController(StudentService studentService) {
         this.studentService = studentService;
-        this.classRepo = classRepo;
-        this.studentRepo = studentRepo;
+
     }
 
     //GET student By Id

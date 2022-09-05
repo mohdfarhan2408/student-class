@@ -1,5 +1,6 @@
 package com.example.studentclass.Services;
 
+import com.example.studentclass.Exceptions.ClassNotFoundException;
 import com.example.studentclass.Exceptions.NoRecordFoundException;
 import com.example.studentclass.Models.Class;
 import com.example.studentclass.Repositories.ClassRepo;
@@ -21,7 +22,7 @@ public class ClassService {
 
     public Class getClassById(Long id) {
         return classRepo.findById(id)
-                .orElseThrow(() -> new NoRecordFoundException());
+                .orElseThrow(() -> new ClassNotFoundException("id", id));
     }
 
 
@@ -33,15 +34,15 @@ public class ClassService {
         return classRepo.save(newClass);
     }
 
-    public Class updateClassDetails(Class classDetails, Long id) {
-
-        Class updatedClass = classRepo.findById(id).orElseThrow(
-                () -> new NoRecordFoundException());
-
-            updatedClass.setName(classDetails.getName());
-            updatedClass.setStatus(classDetails.getStatus());
-
-            classRepo.save((updatedClass));
-            return updatedClass;
-    }
+//    public Class updateClassDetails(Class classDetails, Long id) {
+//
+//        Class updatedClass = classRepo.findById(id).orElseThrow(
+//                () -> new NoRecordFoundException());
+//
+//            updatedClass.setName(classDetails.getName());
+//            updatedClass.setStatus(classDetails.getStatus());
+//
+//            classRepo.save((updatedClass));
+//            return updatedClass;
+//    }
 }

@@ -36,7 +36,7 @@ public class ClassService {
     public Class updateClassDetails(Class classDetails, Long id) {
 
         Class updatedClass = classRepo.findById(id).orElseThrow(
-                () -> new IllegalStateException("Class with id " + id + " doesn't exist"));
+                () -> new NoRecordFoundException());
 
             updatedClass.setName(classDetails.getName());
             updatedClass.setStatus(classDetails.getStatus());

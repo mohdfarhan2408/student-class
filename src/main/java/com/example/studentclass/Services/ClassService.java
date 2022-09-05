@@ -1,5 +1,6 @@
 package com.example.studentclass.Services;
 
+import com.example.studentclass.Exceptions.NoRecordFoundException;
 import com.example.studentclass.Models.Class;
 import com.example.studentclass.Repositories.ClassRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class ClassService {
 
     public Class getClassById(Long id) {
         return classRepo.findById(id)
-                .orElseThrow(() -> new IllegalStateException("Class with id " +  id + " doesnt exist"));
+                .orElseThrow(() -> new NoRecordFoundException());
     }
 
 

@@ -1,6 +1,5 @@
 package com.example.studentclass.Repositories;
 
-import com.example.studentclass.Models.Class;
 import com.example.studentclass.Models.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

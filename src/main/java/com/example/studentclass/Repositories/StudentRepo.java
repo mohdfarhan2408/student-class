@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface StudentRepo extends JpaRepository<Student, Long>, ClassRepo {
+public interface StudentRepo extends JpaRepository<Student, Long> {
 
     @Query(value = "SELECT s FROM Student s WHERE s.status='ACTIVE' ")
     List<Student> findAllActiveStudents();

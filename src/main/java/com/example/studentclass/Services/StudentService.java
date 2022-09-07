@@ -28,7 +28,6 @@ public class StudentService {
         this.classRepo = classRepo;
     }
 
-
     public Student getStudentById(Long id) {
         return studentRepo.findById(id)
                 .orElseThrow(() -> new RuntimeException("Student with id: " + id + " doesn't exist"));
@@ -53,4 +52,6 @@ public class StudentService {
         return newStudent;
     }
 
+    public void createNewStudent(Student newStudent) {
+    }
 }

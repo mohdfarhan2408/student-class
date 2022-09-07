@@ -1,5 +1,6 @@
 package com.example.studentclass.Services;
 
+import ch.qos.logback.core.joran.spi.InterpretationContext;
 import com.example.studentclass.Models.Class;
 import com.example.studentclass.Models.Status;
 import com.example.studentclass.Repositories.ClassRepo;
@@ -21,20 +22,19 @@ class ClassServiceTest {
     @Mock
     private ClassRepo classRepo;
     private ClassService underTest;
-//    private Class newClass;
-//    private Long id;
+    private Long id;
 
     @BeforeEach
     void setUp() {
         underTest = new ClassService(classRepo);
     }
     @Test
-    @Disabled
+    @Disabled //disabled because can't get it to work properly
     void getClassById() {
-//        //when
-//        underTest.getClassById(id);
-//        //then
-//        verify(classRepo).findById(id);
+        //when
+        underTest.getClassById(id);
+        //then
+        verify(classRepo).findById(id);
     }
     @Test
     void getAllActiveClasses() {

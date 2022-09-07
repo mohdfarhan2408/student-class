@@ -52,9 +52,4 @@ class ClassServiceTest {
         verify(classRepo).save(newClass);
     }
 
-    @Test
-    @Disabled
-    void updateClassDetails() {
-    }
-
 }

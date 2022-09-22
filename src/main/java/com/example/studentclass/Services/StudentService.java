@@ -1,5 +1,6 @@
 package com.example.studentclass.Services;
 
+import com.example.studentclass.Exceptions.NoRecordFoundException;
 import com.example.studentclass.Models.Class;
 import com.example.studentclass.Models.Student;
 import com.example.studentclass.Repositories.ClassRepo;
@@ -31,7 +32,7 @@ public class StudentService {
 
     public Student getStudentById(Long id) {
         return studentRepo.findById(id)
-                .orElseThrow(() -> new RuntimeException("Student with id: " + id + " doesn't exist"));
+                .orElseThrow(() -> new NoRecordFoundException());
     }
 
 
@@ -44,7 +45,7 @@ public class StudentService {
         LOG.debug("Get the Student");
         Optional<Class> classId = classRepo.findById(id);
         if (!classId.isPresent()){
-            throw new RuntimeException("Student with id " + classId + " doesn't exist");
+            throw new NoRecordFoundException();
         }
 
         Student newStudent = studentRepo.save(student);

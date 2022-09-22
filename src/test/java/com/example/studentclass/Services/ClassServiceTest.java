@@ -31,11 +31,11 @@ class ClassServiceTest {
     @InjectMocks
     private ClassService classService;
 
-    private Class aClass;
+    private Class class1;
 
     @BeforeEach
     public void setup(){
-        aClass = Class.builder()
+        class1 = Class.builder()
                 .id(1L)
                 .name("Bestari")
                 .status(ACTIVE)
@@ -46,10 +46,10 @@ class ClassServiceTest {
     @Test
     public void givenClassObject_whenFindById_thenReturnClassObjectForThatId(){
         //given-Pre Condition Setup;
-        given(classRepo.findById(aClass.getId())).willReturn(Optional.of(aClass));
+        given(classRepo.findById(class1.getId())).willReturn(Optional.of(class1));
 
         //when-action or the behavior that we are going to test;
-        Class savedClass = classService.getClassById(aClass.getId());
+        Class savedClass = classService.getClassById(class1.getId());
 
         //then-verify the output.
         assertThat(savedClass).isNotNull();
@@ -60,10 +60,10 @@ class ClassServiceTest {
     @Test
     public void givenClassObject_whenSaveClass_thenReturnClassObject(){
         //given-Pre Condition Setup;
-        given(classRepo.save(aClass)).willReturn(aClass);
+        given(classRepo.save(class1)).willReturn(class1);
 
         //when-action or the behavior that we are going to test;
-        Class savedClass = classService.createNewClass(aClass);
+        Class savedClass = classService.createNewClass(class1);
 
         //then-verify the output.
         assertThat(savedClass).isNotNull();
@@ -77,13 +77,13 @@ class ClassServiceTest {
                 .name("Kasturi")
                 .status(ACTIVE)
                 .build();
-        given(classRepo.findAllActiveClasses()).willReturn(Arrays.asList(aClass, class2));
+        given(classRepo.findAllActiveClasses()).willReturn(Arrays.asList(class1, class2));
 
         //when-action or the behavior that we are going to test;
         classService.getAllActiveClasses();
 
         //then-verify the output.
-        assertThat(aClass.getStatus()).isEqualTo(ACTIVE);
+        assertThat(class1.getStatus()).isEqualTo(ACTIVE);
         assertThat(class2.getStatus()).isEqualTo(ACTIVE);
     }
 

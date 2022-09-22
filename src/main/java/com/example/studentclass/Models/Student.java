@@ -12,7 +12,7 @@ import javax.persistence.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-
+@Builder
 public class Student extends EntityModel{
 
     @Id

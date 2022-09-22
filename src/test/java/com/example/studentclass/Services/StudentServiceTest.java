@@ -1,9 +1,8 @@
 package com.example.studentclass.Services;
 
-import com.example.studentclass.Exceptions.ClassNotFoundException;
+
 import com.example.studentclass.Exceptions.NoRecordFoundException;
 import com.example.studentclass.Models.Class;
-import com.example.studentclass.Models.Status;
 import com.example.studentclass.Models.Student;
 import com.example.studentclass.Repositories.ClassRepo;
 import com.example.studentclass.Repositories.StudentRepo;

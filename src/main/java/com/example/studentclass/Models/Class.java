@@ -14,7 +14,7 @@ import java.util.Set;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-
+@Builder
 public class Class extends EntityModel {
 
 

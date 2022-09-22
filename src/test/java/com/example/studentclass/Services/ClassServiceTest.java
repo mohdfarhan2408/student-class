@@ -1,14 +1,11 @@
 package com.example.studentclass.Services;
 
+import com.example.studentclass.Exceptions.ClassNotFoundException;
 import com.example.studentclass.Models.Class;
 import com.example.studentclass.Repositories.ClassRepo;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-
-import static org.mockito.BDDMockito.given;
-
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -19,7 +16,11 @@ import java.util.Optional;
 
 import static com.example.studentclass.Models.Status.ACTIVE;
 import static org.assertj.core.api.Assertions.assertThat;
-
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.verify;
 
 
 @ExtendWith(MockitoExtension.class)
@@ -32,6 +33,7 @@ class ClassServiceTest {
     private ClassService classService;
 
     private Class class1;
+
 
     @BeforeEach
     public void setup(){
@@ -53,6 +55,22 @@ class ClassServiceTest {
 
         //then-verify the output.
         assertThat(savedClass).isNotNull();
+
+    }
+
+    @DisplayName("JUnit test for find class by id which throws exception")
+    @Test
+    public void givenClassObject_whenFindById_thenThrowsException(){
+        //given-Pre Condition Setup;
+        given(classRepo.findById(class1.getId())).willReturn(Optional.ofNullable(null));
+
+        //when-action or the behavior that we are going to test;
+        assertThrows(ClassNotFoundException.class, () -> {
+            classService.getClassById(class1.getId());
+        });
+
+        //then-verify the output.
+        verify(classRepo).findById(class1.getId());
 
     }
 

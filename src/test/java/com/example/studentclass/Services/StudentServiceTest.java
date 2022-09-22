@@ -1,5 +1,7 @@
 package com.example.studentclass.Services;
 
+import com.example.studentclass.Exceptions.ClassNotFoundException;
+import com.example.studentclass.Exceptions.NoRecordFoundException;
 import com.example.studentclass.Models.Class;
 import com.example.studentclass.Models.Status;
 import com.example.studentclass.Models.Student;
@@ -20,6 +22,7 @@ import static com.example.studentclass.Models.Status.ACTIVE;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
 class StudentServiceTest {
@@ -64,6 +67,22 @@ class StudentServiceTest {
 
         //then-verify the output.
         assertThat(savedStudent).isNotNull();
+
+    }
+
+    @DisplayName("JUnit test for find student by id which throws exception")
+    @Test
+    public void givenStudentObject_whenFindById_thenThrowsException(){
+        //given-Pre Condition Setup;
+        given(studentRepo.findById(student.getId())).willReturn(Optional.ofNullable(null));
+
+        //when-action or the behavior that we are going to test;
+        assertThrows(NoRecordFoundException.class, () -> {
+            studentService.getStudentById(student.getId());
+        });
+
+        //then-verify the output.
+        verify(studentRepo).findById(student.getId());
 
     }
 

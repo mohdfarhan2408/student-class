@@ -15,6 +15,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 import static com.example.studentclass.Models.Status.ACTIVE;
@@ -114,11 +115,12 @@ class StudentServiceTest {
         given(studentRepo.findAllActiveStudents()).willReturn(Arrays.asList(student, student1));
 
         //when-action or the behavior that we are going to test;
-        studentService.getActiveStudents();
+        List<Student> activeStudent = studentService.getActiveStudents();
 
         //then-verify the output.
-        assertThat(student.getStatus()).isEqualTo(ACTIVE);
-        assertThat(student1.getStatus()).isEqualTo(ACTIVE);
+//        assertThat(student.getStatus()).isEqualTo(ACTIVE);
+//        assertThat(student1.getStatus()).isEqualTo(ACTIVE);
+        assertThat(activeStudent).isNotNull();
     }
 
 }

@@ -24,13 +24,13 @@
 			<url>scp://repo/maven2</url>
 			<layout>default</layout>
 		</repository>
-		<snapshotRepository>
+		<!-- <snapshotRepository>
 			<uniqueVersion>true</uniqueVersion>
 			<id>propSnap</id>
 			<name>Propellors Snapshots</name>
 			<url>sftp://propellers.net/maven</url>
 			<layout>legacy</layout>
-		</snapshotRepository>
+		</snapshotRepository> -->
 	</distributionManagement>
 	<dependencies>
 		<dependency>

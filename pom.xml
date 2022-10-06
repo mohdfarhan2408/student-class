@@ -24,26 +24,12 @@
 			<url>scp://repo/maven2</url>
 			<layout>default</layout>
 		</repository>
-		<!-- <snapshotRepository>
-			<uniqueVersion>true</uniqueVersion>
-			<id>propSnap</id>
-			<name>Propellors Snapshots</name>
-			<url>sftp://propellers.net/maven</url>
-			<layout>legacy</layout>
-		</snapshotRepository> -->
 	</distributionManagement>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
-<!--		&lt;!&ndash; https://mvnrepository.com/artifact/io.springfox/springfox-swagger-ui &ndash;&gt;-->
-<!--		<dependency>-->
-<!--			<groupId>io.springfox</groupId>-->
-<!--			<artifactId>springfox-swagger-ui</artifactId>-->
-<!--			<version>3.0.0</version>-->
-<!--		</dependency>-->
-		<!-- https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-ui -->
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-ui</artifactId>

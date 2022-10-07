@@ -73,8 +73,6 @@
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
 						</exclude>
-						<exclude>*.war</exclude>
-						<exclude>dependency/*.jar</exclude>
 					</excludes>
 				</configuration>
 			</plugin>
